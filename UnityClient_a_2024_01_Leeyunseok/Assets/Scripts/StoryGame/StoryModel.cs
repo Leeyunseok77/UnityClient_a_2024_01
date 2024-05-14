@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewStory", menuName = "ScriptableObjects/StoryModel")]
-public class StoryModel : MonoBehaviour
+public class StoryModel : ScriptableObject
 {
 
     public int storyNumber;     //스토리 번호
