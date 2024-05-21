@@ -12,6 +12,7 @@ public class StorySystem : MonoBehaviour
 
     public enum TEXTSYSTEM
     {
+        NONE,
         DOING,
         SELECT,
         DONE
@@ -27,6 +28,8 @@ public class StorySystem : MonoBehaviour
     public Button[] buttonWay = new Button [3];          //선택지 버튼 추가
     public Text[] buttonWayText = new Text [3];          //선택지 버튼 Text
 
+    public TEXTSYSTEM currentTextShow = TEXTSYSTEM.NONE;
+
     public void Awake()
     {
         instance = this;
@@ -41,8 +44,10 @@ public class StorySystem : MonoBehaviour
             buttonWay[i].onClick.AddListener(() => OnWayClick(wayIndex));
         }
 
-        StroyModelinit();
-        StartCoroutine(ShowText());
+        CoShowText();
+
+        //StroyModelinit();
+        //StartCoroutine(ShowText());
     }
 
     public void StroyModelinit()
@@ -57,12 +62,44 @@ public class StorySystem : MonoBehaviour
     }
     public void OnWayClick(int index)
     {
+        if (currentTextShow == TEXTSYSTEM.DOING)
+            return;
 
+        bool CheckEventTypeNone = false;            //기본으로 NONE일때는 무조건 성공이라고 판단하고 실패시에 다시 불리는것을 피하기 위해서 Boll 선언
+        StoryModel playStoryModel = currentStoryModel;
+
+        if(playStoryModel.options[index] .eventCheck .eventType == StoryModel .Eventcheck .EventType.NONE)
+        {
+            for(int i = 0; i < playStoryModel.options[index] .eventCheck .suceessResult.Length; i++)
+            {
+                GameSystem.instance.ApplyChoice(currentStoryModel.options[index].eventCheck.suceessResult[i]);
+                CheckEventTypeNone = true;
+            }
+        }
+    }
+    public void CoShowText()
+    {
+        StroyModelinit();
+        ResetShow();
+        StartCoroutine(ShowText());
     }
 
+
+
+
+    public void ResetShow()
+    {
+        textComponent.text = "";
+
+        for(int i = 0; i < buttonWay.Length; i++)
+        {
+            buttonWay[i].gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     IEnumerator ShowText()                                  //코루틴 함수 사용
     {
+        currentTextShow = TEXTSYSTEM.DOING;
         if(currentStoryModel.MainImage != null)
         {
             //Texture2D를 Sprtie 변환
@@ -93,5 +130,6 @@ public class StorySystem : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
+        currentTextShow = TEXTSYSTEM.NONE;
     }
 }

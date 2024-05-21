@@ -95,10 +95,31 @@ MonoBehaviour:
     eventCheck:
       checkValue: 0
       eventType: 0
-      suceessResult: []
+      suceessResult:
+      - resultType: 0
+        value: 0
+        stats:
+          hpPoint: 0
+          spPoint: 0
+          currentHpPoint: 0
+          currentSpPoint: 0
+          currentXpPoint: 0
+          strength: 0
+          dexterity: 0
+          consitiution: 0
+          intelligence: 0
+          wisdom: 0
+          charisma: 0
       failResult: []
   - optionText: 
     buttonText: "\uC120\uD0DD\uC9C0 2"
+    eventCheck:
+      checkValue: 0
+      eventType: 0
+      suceessResult: []
+      failResult: []
+  - optionText: 
+    buttonText: "\uC120\uD0DD\uC9C0 3"
     eventCheck:
       checkValue: 0
       eventType: 0

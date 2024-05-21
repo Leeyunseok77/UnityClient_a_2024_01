@@ -883,6 +883,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323256103}
   m_CullTransparentMesh: 1
+--- !u!1 &1331782647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1331782649}
+  - component: {fileID: 1331782648}
+  m_Layer: 0
+  m_Name: GameSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1331782648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331782647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faff4e69c904dd0428a993a44c98edc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storyModels:
+  - {fileID: 11400000, guid: 291fd5ed6b771024a8c06c497a71c093, type: 2}
+  - {fileID: 11400000, guid: 8427ddddd72169748aa75895ff6a1d32, type: 2}
+  stats:
+    hpPoint: 0
+    spPoint: 0
+    currentHpPoint: 0
+    currentSpPoint: 0
+    currentXpPoint: 0
+    strength: 0
+    dexterity: 0
+    consitiution: 0
+    intelligence: 0
+    wisdom: 0
+    charisma: 0
+  currentState: 0
+  currentStoryIndex: 1
+--- !u!4 &1331782649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331782647}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1341809416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bf28d3d2c1ac742b69c7c9e8098538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStoryModel: {fileID: 11400000, guid: de613f7e791f6284a8d15388bdeb15ed, type: 2}
+  currentStoryModel: {fileID: 11400000, guid: 291fd5ed6b771024a8c06c497a71c093, type: 2}
   delay: 0.1
   fullText: 
   textComponent: {fileID: 593138933}
@@ -1399,6 +1460,7 @@ MonoBehaviour:
   - {fileID: 1710411195}
   - {fileID: 805172362}
   - {fileID: 1661185045}
+  currentTextShow: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1408,3 +1470,4 @@ SceneRoots:
   - {fileID: 1997934026}
   - {fileID: 1341809420}
   - {fileID: 472667264}
+  - {fileID: 1331782649}
